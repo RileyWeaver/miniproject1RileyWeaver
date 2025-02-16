@@ -45,6 +45,5 @@ for ticker in myTickers:
         # Uppercase looked better to me
         plt.title(f" {ticker} LAST 10 DAYS")
         plt.savefig(f"charts/{ticker}.png")
-        plt.show()
     else:
         print(f"Do not have 10 days of data. Only have {len(last10days)} days.")
