@@ -13,11 +13,9 @@ I,     Riley Weaver    , affirm that the work submitted for this assignment is e
 '''
 ##Import Package
 import yfinance as yf
-import pprint
 from datetime import datetime, timedelta
 import numpy as np
 import matplotlib.pyplot as plt
-import copy
 import os
 
 os.makedirs("charts", exist_ok=True)
@@ -27,21 +25,19 @@ today = datetime.now()
 ten_days_ago = today - timedelta(days=15)
 
 # Microsoft, Ubisoft, Netflix, Nvidia, United Airlines
-mytickers = ["MSFT" , "UBSFY", "NFLX", "NVDA", "UAL"]
+myTickers = ["MSFT" , "UBSFY", "NFLX", "NVDA", "UAL"]
 
-
-mytickers.sort()
-for ticker in mytickers:
+for ticker in myTickers:
     result = yf.Ticker(ticker)
     hist = result.history(start= ten_days_ago, end =today)
     last10days = []
     for date in hist['Close'][:11]:
         last10days.append(date)
     if len(last10days) == 10:
-        myarray = np.array(last10days)
-        max_price = myarray.max() + (myarray.max()*.05)
-        min_price = myarray.min() - (myarray.min()*.05)
-        plt.plot(myarray)
+        myArray = np.array(last10days)
+        max_price = myArray.max() + (myArray.max()*.05)
+        min_price = myArray.min() - (myArray.min()*.05)
+        plt.plot(myArray)
         plt.xlabel('Data Points')
         plt.ylabel('Closing Price')
         plt.axis((9, 0, min_price, max_price ))
@@ -49,13 +45,3 @@ for ticker in mytickers:
         plt.savefig(f"charts/{ticker}.png")
     else:
         print(f"Do not have 10 days of data. Only have {len(last10days)} days.")
-
-
-
-# get all stock info
-#pprint.pprint(msft.info)
-
-# get historical market data
-#hist = msft.history(period="1mo")
-
-#pprint.pprint(hist)

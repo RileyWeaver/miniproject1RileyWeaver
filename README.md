@@ -1,9 +1,7 @@
 ### INF601 - Advanced Programming in Python
 ### Riley Weaver
-### Mini Project 1
-
-
 # Mini Project 1
+
 
 ## Description
 
@@ -23,7 +21,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## 
+## Output
 
 This is supposed to create 5 PNG charts to charts/ for each of the 5 stocks in the last 10 businesses days. 
 
