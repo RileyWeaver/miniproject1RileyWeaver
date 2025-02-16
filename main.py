@@ -1,3 +1,7 @@
+## INF601 - Advance Programming in Python
+## Riley Weaver
+## Mini Project 1
+
 '''
 INF601 - Programming in Python
 Assignment: mini project 1
@@ -7,3 +11,28 @@ I,     Riley Weaver    , affirm that the work submitted for this assignment is e
  in consequences, including disciplinary actions as determined by my course instructor and outlined in institutional policies. By signing this statement,
  I acknowledge my commitment to upholding the principles of academic integrity.
 '''
+
+##Import Package
+import yfinance as yf
+import pprint
+
+# Microsoft, Ubisoft, Netflix, Nvidia, United Airlines
+mytickers = ["MSFT" , "UBSFY", "NFLX", "NVDA", "UAL"]
+
+mydata = {}
+
+
+mytickers.sort()
+for ticker in mytickers:
+    result = yf.Ticker(ticker)
+    mydata[ticker] = {'ticker' : ticker,
+                      'dayHigh' : result.info['dayHigh']
+                      }
+pprint.pprint(mydata)
+# get all stock info
+#pprint.pprint(msft.info)
+
+# get historical market data
+#hist = msft.history(period="1mo")
+
+#pprint.pprint(hist)
