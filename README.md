@@ -17,25 +17,15 @@ This project will be using the packages NumPy and Matplotlib in order to create 
 pip install -r requirements.txt
 ```
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+python main.py
 ```
 
-## Help
+## 
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+This is supposed to create 5 PNG charts to charts/ for each of the 5 stocks in the last 10 businesses days. 
 
 ## Authors
 
