@@ -24,9 +24,10 @@ today = datetime.now()
 
 ten_days_ago = today - timedelta(days=15)
 
-# Microsoft, Ubisoft, Netflix, Nvidia, United Airlines
+# Microsoft, Ubisoft, Netflix, Nvidia, United Airlines using different ones from the video
 myTickers = ["MSFT" , "UBSFY", "NFLX", "NVDA", "UAL"]
 
+#I followed along with the video provided to better understand the process
 for ticker in myTickers:
     result = yf.Ticker(ticker)
     hist = result.history(start= ten_days_ago, end =today)
@@ -41,7 +42,9 @@ for ticker in myTickers:
         plt.xlabel('Data Points')
         plt.ylabel('Closing Price')
         plt.axis((9, 0, min_price, max_price ))
-        plt.title(f" {ticker.upper()} last 10 days")
+        # Uppercase looked better to me
+        plt.title(f" {ticker} LAST 10 DAYS")
         plt.savefig(f"charts/{ticker}.png")
+        plt.show()
     else:
         print(f"Do not have 10 days of data. Only have {len(last10days)} days.")
