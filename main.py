@@ -11,24 +11,36 @@ I,     Riley Weaver    , affirm that the work submitted for this assignment is e
  in consequences, including disciplinary actions as determined by my course instructor and outlined in institutional policies. By signing this statement,
  I acknowledge my commitment to upholding the principles of academic integrity.
 '''
-
 ##Import Package
 import yfinance as yf
 import pprint
+from datetime import datetime, timedelta
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+today = datetime.now()
+
+ten_days_ago = today - timedelta(days=15)
 
 # Microsoft, Ubisoft, Netflix, Nvidia, United Airlines
 mytickers = ["MSFT" , "UBSFY", "NFLX", "NVDA", "UAL"]
-
-mydata = {}
 
 
 mytickers.sort()
 for ticker in mytickers:
     result = yf.Ticker(ticker)
-    mydata[ticker] = {'ticker' : ticker,
-                      'dayHigh' : result.info['dayHigh']
-                      }
-pprint.pprint(mydata)
+    hist = result.history(start= ten_days_ago, end =today)
+    last10days = []
+    for date in hist['Close'][:11]:
+        last10days.append(date)
+    myarray = np.array(last10days)
+    pprint.pprint(myarray)
+    plt.plot(myarray)
+    plt.show()
+
+
+
 # get all stock info
 #pprint.pprint(msft.info)
 
