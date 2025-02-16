@@ -1,6 +1,6 @@
 ## INF601 - Advance Programming in Python
 ## Riley Weaver
-## Mini Project 1
+## Mini Project 01
 
 '''
 INF601 - Programming in Python
